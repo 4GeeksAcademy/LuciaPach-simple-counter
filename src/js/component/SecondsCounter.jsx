@@ -1,6 +1,6 @@
-// SecondsCounter.js
-
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
 
 const SecondsCounter = () => {
   const [counter, setCounter] = useState(0);
@@ -31,11 +31,21 @@ const SecondsCounter = () => {
     position: "absolute",
     top: "20px",
     left: "50%",
-    transform: "translateX(-50%)"
+    transform: "translateX(-50%)",
+    display: "flex",
+    alignItems: "center" // Centrar ícono verticalmente con el texto
+  };
+
+  // Estilos CSS para el ícono
+  const iconStyles = {
+    marginRight: "20px" // Separación entre el ícono y el texto del contador
   };
 
   return (
     <div className="counter-container" style={counterContainerStyles}>
+      {/* Mostrar el ícono de reloj antes del contador */}
+      <FontAwesomeIcon icon={faClock} style={iconStyles} />
+
       {/* Mostrar el contador */}
       <h1>{formattedCounter}</h1>
     </div>
